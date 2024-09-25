@@ -96,12 +96,19 @@ function requestListener(_request, response) {
 
 **Question 1.2** donner la liste des en-têtes qui ont changé depuis la version précédente.
 
+![img](https://github.com/Skyzm3n/DevWeb/tree/main/DERRIEN_Benoit_CC3/images/P1_1.2-1.png?raw=true)
+<br>
+![img](https://github.com/Skyzm3n/DevWeb/tree/main/DERRIEN_Benoit_CC3/images/P1_1.2-2.png?raw=true)
+<br>
+Depuis que l'on à changé de version on peut observer de nouvelles modifications telles que l'arrivée de: 
 
+- __Content-Type : application/json__ :En effet cette en-tête est desormais au format JSON.
+- __Conten-Lenght/ 20__ : En effet maintenat la requête nous renvoie la taille en octet de la réponse
 
+On a par contre perdu:
+- __Transfer-Encoding: chunked__ : Il s'agit de la méthode d'envoie de la réponse. Dans le cas suivant celle-ci est envoyéen morceau
 
-
-
-
+<br><br>
 
 
 Remplacer enfin la fonction requestListener() par la suivante et tester :
@@ -119,3 +126,10 @@ function requestListener(_request, response) {
 }
 
 **Question 1.3** que contient la réponse reçue par le client ?
+
+Le client recevra le contenu du fichier html ayant pour nom index.html au format utf-8.
+Si celui-ci n'existe pas la requète n'aboutiera paset se transformera en erreur.
+
+<br><br>
+
+**Question 1.4** quelle est l'erreur affichée dans la console ? Retrouver sur <https://nodejs.org/api> le code d'erreur affiché.
