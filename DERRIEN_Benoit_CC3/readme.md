@@ -58,4 +58,55 @@ server.listen(port, host, () => {
 
 Enfin, exécuter la commande node server-http.mjs et vérifier que votre application web fonctionne en vous connectant avec votre navigateur.
 
-Question 1.1 donner la liste des en-têtes de la réponse HTTP du serveur.
+**Question 1.1** donner la liste des en-têtes de la réponse HTTP du serveur.
+
+
+
+
+Après avoir lancer notre serveur on obtien la requête suivante.
+Cell-ci se découpe en 5 parties:
+- __HTTP/1.1 200 OK__ : Le code 200 du protocole http représente le sucées de la requête HTTP.
+- __Wed, 25 Sep 2024 02:24:17 GM__ : On a alors la date et l'heure de la reponse à notre requête qui nous est retourné par le serveur.
+- __Connection: keep-alive__ : Definit que le serveur reste en ligne pour toutes demandes supplémentaires.
+- __Keep-Alive: timeout=5__ : Cette ligne definit un delai de 5 secondes avant de fermer la connexion avec le serveur.
+- __Transfer-Encoding: chunked__ : Il s'agit de la méthode d'envoie de la réponse. Dans le cas suivant celle-ci est envoyéen morceau
+
+![img](/images/P1_1.1-2.png)
+![img](/images/P1_1.1-1.png)
+
+<br><br>
+
+Servir différents types de contenus
+
+Maintenant, remplacer la fonction requestListener() par la suivante et tester :
+
+function requestListener(_request, response) {
+  response.setHeader("Content-Type", "application/json");
+  response.end(JSON.stringify({ message: "I'm OK" }));
+}
+
+**Question 1.2** donner la liste des en-têtes qui ont changé depuis la version précédente.
+
+
+
+
+
+
+
+
+
+Remplacer enfin la fonction requestListener() par la suivante et tester :
+
+import fs from "node:fs/promises";
+
+function requestListener(_request, response) {
+  fs.readFile("index.html", "utf8")
+    .then((contents) => {
+      response.setHeader("Content-Type", "text/html");
+      response.writeHead(200);
+      return response.end(contents);
+    })
+    .catch((error) => console.error(error));
+}
+
+**Question 1.3** que contient la réponse reçue par le client ?
