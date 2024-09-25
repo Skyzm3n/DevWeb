@@ -10,10 +10,16 @@ function requestListener(_request, response) {
     .then((contents) => {
       response.setHeader("Content-Type", "text/html");
       response.writeHead(200);
-      return response.end(contents);
+      response.end(contents);
     })
-    .catch((error) => console.error(error));
+    .catch((error) => {    
+      console.error("Erreur lors de la lecture du fichier:", error); //On rajoute un messae d'erreur dansle console
+
+      response.end("Le fichier souhaite est introuvable.");
+    });
 }
+
+
 
 
 const server = http.createServer(requestListener);

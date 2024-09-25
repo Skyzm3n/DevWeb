@@ -133,3 +133,33 @@ Si celui-ci n'existe pas la requète n'aboutiera paset se transformera en erreur
 <br><br>
 
 **Question 1.4** quelle est l'erreur affichée dans la console ? Retrouver sur <https://nodejs.org/api> le code d'erreur affiché.
+
+![img](https://github.com/Skyzm3n/DevWeb/tree/main/DERRIEN_Benoit_CC3/images/P1_1.4.png?raw=true)
+<br>
+![img](https://github.com/Skyzm3n/DevWeb/tree/main/DERRIEN_Benoit_CC3/images/P1_1.4-2.png?raw=true)
+<br>
+
+ENOENT (No such file or directory): Commonly raised by fs operations to indicate that a component of the specified pathname does not exist. No entity (file or directory) could be found by the given path.
+
+- Le programme ne trouve pas le fichier en question dans le repertoire DERRIEN_Benoit_CC3
+
+on modifie le code alors de la façon suivant
+```js
+function requestListener(_request, response) {
+  fs.readFile("index.html", "utf8")
+    .then((contents) => {
+      response.setHeader("Content-Type", "text/html");
+      response.writeHead(200);
+      response.end(contents);
+    })
+    .catch((error) => {    
+      console.error("Erreur lors de la lecture du fichier:", error); //On rajoute un messae d'erreur dansle console
+      response.writeHead(500, { "Content-Type": "text/plain" }); //Si l'erreur est une ereur de type 500 alors 
+      response.end("Le fichier souhaite est introuvable.");
+    });
+}
+```
+
+
+
+
