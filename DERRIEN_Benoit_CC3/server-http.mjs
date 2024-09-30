@@ -5,20 +5,35 @@ const port = 8000;
 
 import fs from "node:fs/promises";
 
-async function requestListener(_request, response) {
+async function requestListener(request, response) {
+  response.setHeader("Content-Type", "text/html");
   try {
-    const contenu_page = await fs.readFile("index.html", "utf8");
-    response.setHeader("Content-Type", "text/html");
-    response.writeHead(200);
-    response.end(contenu_page);
+    const section_url = request.url.split("/");
+
+    if (section_url[1] === "index.html" || section_url[1] === "") {
+      const contents = await fs.readFile("index.html", "utf8");
+      response.writeHead(200);
+      return response.end(contents);
+    }
+
+    if (section_url[1] === "random" && section_url.length === 3) {
+      const nb = parseInt(section_url[2]);
+      if (!isNaN(nb) && nb > 0) {
+        const nbr_rdm = Array.from({ length: nb }, () => Math.floor(100 * Math.random()));
+        response.writeHead(200);
+        return response.end(`<html><p>Nombre genere aleatoirement : ${nbr_rdm.join(", ")}</p></html>`);
+      } 
+    }
+
+    response.writeHead(404);
+    return response.end(`<html><p>404: NOT FOUND</p></html>`);
   } catch (error) {
-    console.error("Erreur lors de la lecture du fichier : Error 500", error); //On rajoute un message d'erreur dans le console
-    response.writeHead(500, { "Content-Type": "text/plain" }); //Si l'erreur est une ereur de type 500 alors
-    response.end("Le fichier souhaite est introuvable : Error 500"); //On affiche le message d'erreur à l'utilisateur
+    console.error("Internal server error:", error);
+    response.writeHead(500);
+    return response.end(`<html><p>500: INTERNAL SERVER ERROR</p></html>`);
   }
 }
 
-console.log("NODE_ENV =", process.env.NODE_ENV);
 
 const server = http.createServer(requestListener);
 server.listen(port, host, () => {

@@ -170,3 +170,60 @@ Exécuter npm run http-dev, visiter le site, puis pendant que le serveur s’ex�
 
 **Question 1.8** donner les codes HTTP reçus par votre navigateur pour chacune des quatre pages précédentes.
 
+
+
+- http://localhost:8000/index.html
+
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.7-1.png)
+
+- http://localhost:8000/random.html
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.7-2.png)
+
+- http://localhost:8000/
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.7-3.png)
+
+- http://localhost:8000/dont-exist
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.7-4.png)
+
+<br><br>
+
+
+Maintenant, on veut ajouter une route /random/:nb où :nb est un paramètre entier avec le nombre d’entiers à générer. Ajouter cette route au switch et reprendre la page random.html pour générer autant de nombres qu’indiqué dans l’URL.
+
+Pour cela, utiliser request.url.split("/"); qui va décomposer le chemin demandé et faire le switch sur le premier niveau de l’arborescence. Faites en sorte que le switch traite /index.html et / de la même façon.
+
+```js
+async function requestListener(request, response) {
+  response.setHeader("Content-Type", "text/html");
+  try {
+    const section_url = request.url.split("/");
+
+    if (section_url[1] === "index.html" || section_url[1] === "") {
+      const contents = await fs.readFile("index.html", "utf8");
+      response.writeHead(200);
+      return response.end(contents);
+    }
+
+    if (section_url[1] === "random" && section_url.length === 3) {
+      const nb = parseInt(section_url[2]);
+      if (!isNaN(nb) && nb > 0) {
+        const nbr_rdm = Array.from({ length: nb }, () => Math.floor(100 * Math.random()));
+        response.writeHead(200);
+        return response.end(`<html><p>Nombre genere aleatoirement : ${nbr_rdm.join(", ")}</p></html>`);
+      } 
+    }
+
+    response.writeHead(404);
+    return response.end(`<html><p>404: NOT FOUND</p></html>`);
+  } catch (error) {
+    console.error("Internal server error:", error);
+    response.writeHead(500);
+    return response.end(`<html><p>500: INTERNAL SERVER ERROR</p></html>`);
+  }
+}
+```
+
+
+
+
+**__Partie 2 : framework Express__**
