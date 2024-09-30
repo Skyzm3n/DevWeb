@@ -1,6 +1,6 @@
 
 
-**Question 1.1** donner la liste des en-têtes de la réponse HTTP du serveur.
+**Question 1.1**: donner la liste des en-têtes de la réponse HTTP du serveur.
 
 Après avoir lancer notre serveur on obtien la requête suivante.
 Cell-ci se découpe en 5 parties:
@@ -18,7 +18,7 @@ Cell-ci se découpe en 5 parties:
 
 
 
-**Question 1.2** donner la liste des en-têtes qui ont changé depuis la version précédente.
+**Question 1.2**: donner la liste des en-têtes qui ont changé depuis la version précédente.
 
 ![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.2-1.png)
 
@@ -35,14 +35,14 @@ On a par contre perdu:
 
 <br><br>
 
-**Question 1.3** que contient la réponse reçue par le client ?
+**Question 1.3**: que contient la réponse reçue par le client ?
 
 Le client recevra le contenu du fichier html ayant pour nom index.html au format utf-8.
 Si celui-ci n'existe pas la requète n'aboutiera paset se transformera en erreur.
 
 <br><br>
 
-**Question 1.4** quelle est l'erreur affichée dans la console ? Retrouver sur <https://nodejs.org/api> le code d'erreur affiché.
+**Question 1.4**: quelle est l'erreur affichée dans la console ? Retrouver sur <https://nodejs.org/api> le code d'erreur affiché.
 
 ![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.4-1.png)
 ![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.4-2.png)
@@ -80,7 +80,7 @@ On peut obtenir le message suivant sur la page de l'utilisateur.
 
 <br><br>
 
-**Question 1.5** donner le code de requestListener() modifié avec gestion d’erreur en async/await.
+**Question 1.5**: donner le code de requestListener() modifié avec gestion d’erreur en async/await.
 
 
 ```js
@@ -101,6 +101,37 @@ async function requestListener(_request, response) {
 }
 
 ```
+<br><br>
+
+
+**Mode développement**
+Dans le dossier devweb-tp5 exécuter les commandes suivantes :
+
+- npm install cross-env --save
+- npm install nodemon --save-dev
+
+
+**Question 1.6**: indiquer ce que cette commande a modifié dans votre projet.
+
+On effectue les commandes citées précédement.
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.6-1.png)
+
+L'execution de ces commandes permettent d'installer differents addons/packtages.
+Ceux-ci sont:
+- __cross-env__ : packtage permettant d'utiliser des variables d'environnement non dépendantes d'un systèmes d'exploitation precis
+-__nodemon__ : packtage permettant de redemarer automatiquement node.js lorsqu'il y a une modification des fichier. cela nous évite de redemarer à chaque modification le server comme precedementt.
+
+L'execution de ces commandes modifient dans un premier temps le fichier package.json.
+On passe alors de ;
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.6-2.png)
+à:
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.6-3.png)
+
+On obtien egalement la creation d'un fichier package-lock.json ainsi qu'un dossier node_modules avec tous les addons et les packages:
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.6-4.png)
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.6-5.png)
+
+
 
 
 
