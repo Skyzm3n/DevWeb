@@ -33,7 +33,7 @@ Depuis que l'on à changé de version on peut observer de nouvelles modification
 On a par contre perdu:
 - __Transfer-Encoding: chunked__ : Il s'agit de la méthode d'envoie de la réponse. Dans le cas suivant celle-ci est envoyéen morceau
 
-
+<br><br>
 
 **Question 1.3** que contient la réponse reçue par le client ?
 
@@ -45,16 +45,19 @@ Si celui-ci n'existe pas la requète n'aboutiera paset se transformera en erreur
 **Question 1.4** quelle est l'erreur affichée dans la console ? Retrouver sur <https://nodejs.org/api> le code d'erreur affiché.
 
 ![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.4-1.png)
-<br>
 ![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.4-2.png)
+
 <br>
 
 ENOENT (No such file or directory): Commonly raised by fs operations to indicate that a component of the specified pathname does not exist. No entity (file or directory) could be found by the given path.
 
-- Le programme ne trouve pas le fichier en question dans le repertoire DERRIEN_Benoit_CC3
+- Le programme ne trouve pas le fichier en question dans dans la fonction requestListener() 
+
+Modifier la fonction requestListener() précédente pour que le client recoive une erreur 500 si index.html est introuvable en remplacant le callback de la méthode Promise.catch().
 
 on modifie le code alors de la façon suivant
 ```js
+
 function requestListener(_request, response) {
   fs.readFile("index.html", "utf8")
     .then((contents) => {
@@ -63,13 +66,39 @@ function requestListener(_request, response) {
       response.end(contents);
     })
     .catch((error) => {    
-      console.error("Erreur lors de la lecture du fichier:", error); //On rajoute un messae d'erreur dansle console
+      console.error("Erreur lors de la lecture du fichier : Error 500", error); //On rajoute un messae d'erreur dansle console
       response.writeHead(500, { "Content-Type": "text/plain" }); //Si l'erreur est une ereur de type 500 alors 
-      response.end("Le fichier souhaite est introuvable.");
+      response.end("Le fichier souhaite est introuvable : Error 500");
     });
 }
+
 ```
 
+On peut obtenir le message suivant sur la page de l'utilisateur.
 
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.4-2.png)
+
+<br><br>
+
+**Question 1.5** donner le code de requestListener() modifié avec gestion d’erreur en async/await.
+
+
+```js
+
+function requestListener(_request, response) {
+  fs.readFile("index.html", "utf8")
+    .then((contents) => {
+      response.setHeader("Content-Type", "text/html");
+      response.writeHead(200);
+      response.end(contents);
+    })
+    .catch((error) => {    
+      console.error("Erreur lors de la lecture du fichier : Error 500", error); //On rajoute un messae d'erreur dansle console
+      response.writeHead(500, { "Content-Type": "text/plain" }); //Si l'erreur est une ereur de type 500 alors 
+      response.end("Le fichier souhaite est introuvable : Error 500");
+    });
+}
+
+```
 
 

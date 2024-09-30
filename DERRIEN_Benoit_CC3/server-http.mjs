@@ -13,9 +13,9 @@ function requestListener(_request, response) {
       response.end(contents);
     })
     .catch((error) => {    
-      console.error("Erreur lors de la lecture du fichier:", error); //On rajoute un messae d'erreur dansle console
-
-      response.end("Le fichier souhaite est introuvable.");
+      console.error("Erreur lors de la lecture du fichier : Error 500", error); //On rajoute un messae d'erreur dansle console
+      response.writeHead(500, { "Content-Type": "text/plain" }); //Si l'erreur est une ereur de type 500 alors 
+      response.end("Le fichier souhaite est introuvable : Error 500");
     });
 }
 
