@@ -287,7 +287,33 @@ L'événement "listening" se produit lorsque le serveur Express est connecté à
 
 <br><br>
 
+**Question 2.5** indiquer quelle est l’option (activée par défaut) qui redirige / vers /index.html ?
+
+L'option qui permet de rediriger automatiquement / vers /index.html lorsqu'un client y accède est la méthode express.static(), utilisée avec la configuration par défaut. Lorsque express.static() est appelé sans indiquer de fichier d'index personnalisé, Express.js recherche automatiquement les fichiers suivants dans cet ordre et renvoie le premier trouvé :
+
+- index.html
+- index.htm
+
+Cette fonctionalité est activé par default.
+
+<br><br>
+
+**Question 2.6** visiter la page d’accueil puis rafraichir (Ctrl+R) et ensuite forcer le rafraichissement (Ctrl+Shift+R). Quels sont les codes HTTP sur le fichier style.css ? Justifier.
+
+- Ctrl + R:
+
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P2_2.6-1.png)
+
+- Ctrl + Shift + R
+
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P2_2.6-2.png)
 
 
+Lorsqu'on rafraîchit la page (Ctrl+R), le navigateur vérifie s'il a déjà mis en cache le fichier "style.css". Si c'est le cas, il peut envoyer une requête avec le code HTTP 304 Not Modified. Cela indique que le navigateur possède déjà une version valide du fichier en cache et qu'il peut l'utiliser sans avoir besoin de le télécharger à nouveau depuis le serveur. Dans ce cas, le serveur répond simplement avec le code 304 sans renvoyer le fichier.
 
+En revanche, si on effectue un rafraîchissement forcé de la page (Ctrl+Shift+R), le navigateur ignore le cache et envoie une nouvelle demande pour le fichier "style.css" au serveur. Le serveur renvoie alors le fichier avec le code HTTP 200 OK, car il s'agit d'une nouvelle requête et le navigateur ne l'a plus en cache.
+
+<br><br>
+
+**Question 2.7** vérifier que l’affichage change bien entre le mode production et le mode development.
 
