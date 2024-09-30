@@ -2,9 +2,6 @@
 
 **Question 1.1** donner la liste des en-têtes de la réponse HTTP du serveur.
 
-
-
-
 Après avoir lancer notre serveur on obtien la requête suivante.
 Cell-ci se découpe en 5 parties:
 - __HTTP/1.1 200 OK__ : Le code 200 du protocole http représente le sucées de la requête HTTP.
@@ -24,8 +21,9 @@ Cell-ci se découpe en 5 parties:
 **Question 1.2** donner la liste des en-têtes qui ont changé depuis la version précédente.
 
 ![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.2-1.png)
-<br>
+
 ![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.2-2.png)
+
 <br>
 Depuis que l'on à changé de version on peut observer de nouvelles modifications telles que l'arrivée de: 
 
