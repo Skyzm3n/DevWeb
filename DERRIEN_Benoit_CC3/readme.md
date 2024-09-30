@@ -174,16 +174,16 @@ Exécuter npm run http-dev, visiter le site, puis pendant que le serveur s’ex�
 
 - http://localhost:8000/index.html
 
-![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.7-1.png)
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.8-1.png)
 
 - http://localhost:8000/random.html
-![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.7-2.png)
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.8-2.png)
 
 - http://localhost:8000/
-![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.7-3.png)
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.8-3.png)
 
 - http://localhost:8000/dont-exist
-![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.7-4.png)
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.8-4.png)
 
 <br><br>
 
