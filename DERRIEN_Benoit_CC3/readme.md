@@ -317,3 +317,6 @@ En revanche, si on effectue un rafraîchissement forcé de la page (Ctrl+Shift+R
 
 **Question 2.7** vérifier que l’affichage change bien entre le mode production et le mode development.
 
+
+
+salut
