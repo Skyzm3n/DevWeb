@@ -114,6 +114,7 @@ Dans le dossier devweb-tp5 exécuter les commandes suivantes :
 **Question 1.6**: indiquer ce que cette commande a modifié dans votre projet.
 
 On effectue les commandes citées précédement.
+
 ![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.6-1.png)
 
 L'execution de ces commandes permettent d'installer differents addons/packtages.
@@ -123,15 +124,49 @@ Ceux-ci sont:
 
 L'execution de ces commandes modifient dans un premier temps le fichier package.json.
 On passe alors de ;
+
 ![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.6-2.png)
 à:
 ![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.6-3.png)
 
 On obtien egalement la creation d'un fichier package-lock.json ainsi qu'un dossier node_modules avec tous les addons et les packages:
+
 ![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.6-4.png)
 ![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.6-5.png)
 
+<br><br>
+
+Ensuite, remplacer la propriété "scripts" du fichier package.json par la suivante :
+
+```json
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "http-dev": "cross-env NODE_ENV=development nodemon server-http.mjs",
+    "http-prod": "cross-env NODE_ENV=production node server-http.mjs"
+  },
+```
+
+Exécuter npm run http-dev, visiter le site, puis pendant que le serveur s’exécute modifier le fichier server-http.mjs en ajoutant la ligne console.log("NODE_ENV =", process.env.NODE_ENV);. Enregistrer le fichier et vérifier qu’il y a eu rechargement automatique grâce à https://nodemon.io/. Ensuite, faire la même chose avec la commande npm run http-prod.
+
+**Question 1.7** quelles sont les différences entre les scripts http-dev et http-prod ?
 
 
 
+
+- __http-dev__ :
+
+    - **Utilise nodemon** : Le script http-dev se sert de nodemon pour surveiller le fichier server-http.mjs. Ainsi, lorsqu'on exécute le script avec npm run http-dev, nodemon détecte les modifications dans ce fichier et redémarre automatiquement le serveur à chaque changement de code.
+
+    - **Définit NODE_ENV sur "development"** : Le script définit la variable d'environnement NODE_ENV à "development", ce qui permet d'activer un comportement spécifique au développement, comme l'activation du mode de débogage ou l'affichage de logs détaillés.
+
+- __http-prod__ :
+
+    - **Utilise node** : Le script http-prod utilise simplement node pour exécuter le fichier server-http.mjs, sans surveillance des fichiers ni redémarrage automatique lorsque le code source est modifié.
+
+    - **Définit NODE_ENV sur "production"** : Le script configure la variable d'environnement NODE_ENV à "production", permettant à l'application d'activer les configurations spécifiques à la production, telles que la désactivation du débogage et l'application d'optimisations pour les performances.
+
+
+<br><br>
+
+**Question 1.8** donner les codes HTTP reçus par votre navigateur pour chacune des quatre pages précédentes.
 
