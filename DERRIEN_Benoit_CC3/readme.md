@@ -14,6 +14,7 @@ Cell-ci se découpe en 5 parties:
 - __Transfer-Encoding: chunked__ : Il s'agit de la méthode d'envoie de la réponse. Dans le cas suivant celle-ci est envoyéen morceau
 
 ![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.1-2.png)
+
 ![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.1-1.png)
 
 <br><br>
@@ -22,9 +23,9 @@ Cell-ci se découpe en 5 parties:
 
 **Question 1.2** donner la liste des en-têtes qui ont changé depuis la version précédente.
 
-![img](https://github.com/Skyzm3n/DevWeb/tree/main/DERRIEN_Benoit_CC3/images/P1_1.2-1.png?raw=true)
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.2-1.png)
 <br>
-![img](https://github.com/Skyzm3n/DevWeb/tree/main/DERRIEN_Benoit_CC3/images/P1_1.2-2.png?raw=true)
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.2-2.png)
 <br>
 Depuis que l'on à changé de version on peut observer de nouvelles modifications telles que l'arrivée de: 
 
@@ -45,9 +46,9 @@ Si celui-ci n'existe pas la requète n'aboutiera paset se transformera en erreur
 
 **Question 1.4** quelle est l'erreur affichée dans la console ? Retrouver sur <https://nodejs.org/api> le code d'erreur affiché.
 
-![img](https://github.com/Skyzm3n/DevWeb/tree/main/DERRIEN_Benoit_CC3/images/P1_1.4.png?raw=true)
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.4-1.png)
 <br>
-![img](https://github.com/Skyzm3n/DevWeb/tree/main/DERRIEN_Benoit_CC3/images/P1_1.4-2.png?raw=true)
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P1_1.4-2.png)
 <br>
 
 ENOENT (No such file or directory): Commonly raised by fs operations to indicate that a component of the specified pathname does not exist. No entity (file or directory) could be found by the given path.
