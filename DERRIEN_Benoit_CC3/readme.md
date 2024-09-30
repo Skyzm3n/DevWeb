@@ -55,7 +55,7 @@ ENOENT (No such file or directory): Commonly raised by fs operations to indicate
 
 Modifier la fonction requestListener() précédente pour que le client recoive une erreur 500 si index.html est introuvable en remplacant le callback de la méthode Promise.catch().
 
-on modifie le code alors de la façon suivant
+on modifie le code alors de la façon suivant:
 ```js
 
 function requestListener(_request, response) {
@@ -101,5 +101,6 @@ async function requestListener(_request, response) {
 }
 
 ```
+
 
 
