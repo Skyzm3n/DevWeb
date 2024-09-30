@@ -229,4 +229,65 @@ async function requestListener(request, response) {
 
 
 
-**__Partie 2 : framework Express__**
+## **__Partie 2 : framework Express__**
+
+**Question 2.1** donner les URL des documentations de chacun des modules installés par la commande précédente.
+
+
+- **Express** : https://expressjs.com
+
+- **http-errors** : https://www.npmjs.com/package/http-errors
+
+- **loglevel** : https://www.npmjs.com/package/loglevel
+
+- **morgan** : https://expressjs.com/en/resources/middleware/morgan.html
+
+<br><br>
+
+**Question 2.2** vérifier que les trois routes fonctionnent.
+
+- http://localhost:8000/index.html
+
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P2_2.2-1.png)
+
+- http://localhost:8000/random/150
+
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P2_2.2-2.png)
+
+- http://localhost:8000/
+
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P2_2.2-3.png)
+
+On remarque que les 3 routes fonctionnent sans encombre.
+
+<br><br>
+
+**Question 2.3** lister les en-têtes des réponses fournies par Express. Lesquelles sont nouvelles par rapport au serveur HTTP ?
+
+Voici la liste des entetes obtenues
+
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P2_2.3-1.png)
+
+Les nouvelles en-têtes alors obtenues sont :
+
+- Accept-Ranges
+- Cache-Control
+- Etag
+- Last-Modified
+- X-Powered-By
+
+<br><br>
+
+
+**Question 2.4** quand l'événement listening est-il déclenché ?
+
+
+L'événement "listening" se produit lorsque le serveur Express est connecté à une adresse IP et un port spécifiques, indiquant qu'il est prêt à recevoir des connexions entrantes. Cela signifie que le serveur est opérationnel et attend des requêtes de la part des clients.
+
+
+<br><br>
+
+
+
+
+
