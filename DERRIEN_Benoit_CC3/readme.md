@@ -317,6 +317,12 @@ En revanche, si on effectue un rafraîchissement forcé de la page (Ctrl+Shift+R
 
 **Question 2.7** vérifier que l’affichage change bien entre le mode production et le mode development.
 
+- En mode production la page retourné est : 
+
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P2_2.7-2.png)
 
 
-salut
+- En mode developpement la page retourné est : 
+
+![img](https://github.com/Skyzm3n/DevWeb/blob/main/DERRIEN_Benoit_CC3/images/P2_2.7-2.png)
+
