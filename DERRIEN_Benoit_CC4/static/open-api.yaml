@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  title: Réducteur d'URL API
+  description: Une simple API pour réduire les URLs.
+  version: 1.0.0
+
+paths:
+  /:
+    get:
+      summary: Récupérer le nombre de liens créés
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+
+  /:
+    post:
+      summary: Créer un lien court
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  example: "https://example.com"
+      responses:
+        '201':
+          description: Lien créé
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  short_url:
+                    type: string
+
+  /status/{url}:
+    get:
+      summary: Récupérer le statut d'une URL courte
+      parameters:
+        - name: url
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  original_url:
+                    type: string
+                  created_at:
+                    type: string
+                  visits:
+                    type: integer
+        '404':
+          description: Lien non trouvé
